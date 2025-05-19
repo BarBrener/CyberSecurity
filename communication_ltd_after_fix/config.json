@@ -1,0 +1,10 @@
+{
+    "min_length": 10,
+    "require_upper": true,
+    "require_lower": true,
+    "require_digit": true,
+    "require_special": true,
+    "password_history": 3,
+    "blocked_words": ["password", "admin", "123456", "qwerty"],
+    "max_login_attempts": 3
+}

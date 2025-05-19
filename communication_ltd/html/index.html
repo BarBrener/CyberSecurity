@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XSS Demo</title>
+</head>
+<body>
+  <h2>לקוחות:</h2>
+  <ul id="clients-list"></ul>
+
+  <script>
+    fetch("/list-clients")
+      .then(response => response.json())
+      .then(data => {
+        const list = document.getElementById("clients-list");
+        data.forEach(client => {
+          const li = document.createElement("li");
+          // כאן ה-XSS מתבצע כי אנחנו משתמשים ב-innerHTML
+          li.innerHTML = `שם: ${client.name} | תחום: ${client.sector}`;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
