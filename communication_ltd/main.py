@@ -189,4 +189,3 @@ app.mount("/html", StaticFiles(directory="html"), name="html")
 def serve_home():
     return "html/index.html"
 
-#dildo
